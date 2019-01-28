@@ -82,10 +82,10 @@ If (-Not (Test-Path $FFMPEGPath))
     Write-Verbose "Creating FFMPEG directory"
     New-Item -Path $FFMPEGPath -ItemType Directory | Out-Null
 }
-else 
-{
-    Get-ChildItem $FFMPEGPath | Remove-item -Recurse -Confirm:$false
-}
+#else 
+#{
+#    Get-ChildItem $FFMPEGPath | Remove-item -Recurse -Confirm:$false
+#}
 
 #Download based on the channel input which ffmpeg download you want
 Write-Verbose "Downloading the selected FFMPEG application zip"
