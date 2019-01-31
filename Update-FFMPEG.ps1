@@ -146,4 +146,17 @@ $output211 = "C:\Program Files\Youtube Download\Multi Menu.ahk"
 Invoke-WebRequest -Uri $url211 -OutFile $output211
 
 Pause
+New-Item -ItemType Directory -Force -Path ($env:USERPROFILE + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Youtube Downloader\")
+###################################################### Desktop Shortcut
+$WshShell = New-Object -comObject WScript.Shell
+$Shortcut = $WshShell.CreateShortcut($env:USERPROFILE + "\Desktop\Youtube Downloader.lnk")
+$Shortcut.TargetPath = "C:\Program Files\Youtube Download\Multi Menu.exe"
+$Shortcut.Save()
 
+###################################################### Start menu Shortcut
+$WshShell = New-Object -comObject WScript.Shell
+$Shortcut = $WshShell.CreateShortcut($env:USERPROFILE + "\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Youtube Downloader\Youtube Downloader.lnk")
+$Shortcut.TargetPath = "C:\Program Files\Youtube Download\Multi Menu.exe"
+$Shortcut.Save()
+#############################################################
+Pause
